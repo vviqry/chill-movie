@@ -14,7 +14,7 @@ function MovieCard({
     <div className={`movie-card movie-card--${size}`} onClick={onClick}>
       <div className="movie-card__poster">
         <img 
-          src={poster || '/placeholder-movie.jpg'} 
+          src={poster || 'https://via.placeholder.com/320x180/1a1a2e/ffffff?text=No+Image'} 
           alt={title}
           loading="lazy"
         />

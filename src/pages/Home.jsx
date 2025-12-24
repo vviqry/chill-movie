@@ -2,48 +2,48 @@ import { Header, Footer } from '../components/layout';
 import { Hero, MovieSlider } from '../components/sections';
 import './Home.css';
 
-// Sample movie data - in real app, this would come from an API
+// Sample movie data with reliable backdrop images (16:9)
 const featuredMovie = {
-  title: 'Happiness',
-  description: 'Dalam drama Korea yang menegangkan ini, wabah misterius melanda sebuah gedung apartemen mewah, memaksa penghuninya untuk berjuang bertahan hidup sambil menghadapi ketegangan antar tetangga dan ancaman yang terus berkembang.',
-  backdrop: 'https://image.tmdb.org/t/p/original/hJuDvwzS0SPlsE6MNFOpznQltDZ.jpg',
+  title: 'Duty After School',
+  description: 'Sebuah benda tak dikenal mengambil alih dunia. Dalam keputusasaan, Departemen Pertahanan mulai merekrut lebih banyak tentara, termasuk siswa sekolah menengah. Mereka pun segera menjadi pejuang garis depan dalam pertempuran.',
+  backdrop: 'https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=1920&h=1080&fit=crop',
   rating: '8.5',
   year: '2023',
-  genre: 'Drama, Thriller'
+  genre: 'Drama, Action'
 };
 
 const movieSections = [
   {
-    title: 'Melanjutkan Tonton Film',
+    title: 'Melanjutkan Nonton Film',
     movies: [
-      { id: 1, title: 'Don\'t Look Up', poster: 'https://image.tmdb.org/t/p/w500/th4E1yqsE8DGpAseLiUrI60Hf8V.jpg', rating: '7.2', year: '2021', genre: 'Komedi' },
-      { id: 2, title: 'The Adam Project', poster: 'https://image.tmdb.org/t/p/w500/wFjboE0aFZNbVOF05fzrka9Fqyx.jpg', rating: '6.7', year: '2022', genre: 'Sci-Fi' },
-      { id: 3, title: 'All Of Us Are Dead', poster: 'https://image.tmdb.org/t/p/w500/pTEFqAjLd5YTsMD6NSxKpQEFzgn.jpg', rating: '8.0', year: '2022', genre: 'Horror' },
-      { id: 4, title: 'Squid Game', poster: 'https://image.tmdb.org/t/p/w500/dDlEmu3EZ0Pgg93K2SVNLCjCSvE.jpg', rating: '8.0', year: '2021', genre: 'Thriller' },
-      { id: 5, title: 'Money Heist', poster: 'https://image.tmdb.org/t/p/w500/reEMJA1uzscCbkpeRJeTT2bjqUp.jpg', rating: '8.2', year: '2021', genre: 'Crime' },
-      { id: 6, title: 'Vincenzo', poster: 'https://image.tmdb.org/t/p/w500/dvXJgEDQXhL9Ouot2WkBHpQiHGd.jpg', rating: '8.4', year: '2021', genre: 'Drama' },
+      { id: 1, title: 'Big Hero 6', poster: 'https://images.unsplash.com/photo-1535016120720-40c646be5580?w=320&h=180&fit=crop', rating: '4.9', year: '2014', genre: 'Animasi' },
+      { id: 2, title: 'Dilan 1991', poster: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=320&h=180&fit=crop', rating: '4.8', year: '2019', genre: 'Romance' },
+      { id: 3, title: 'Spider-Man', poster: 'https://images.unsplash.com/photo-1635805737707-575885ab0820?w=320&h=180&fit=crop', rating: '4.7', year: '2021', genre: 'Action' },
+      { id: 4, title: 'The Batman', poster: 'https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?w=320&h=180&fit=crop', rating: '4.6', year: '2022', genre: 'Action' },
+      { id: 5, title: 'Avatar 2', poster: 'https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=320&h=180&fit=crop', rating: '4.5', year: '2022', genre: 'Sci-Fi' },
+      { id: 6, title: 'Black Panther', poster: 'https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?w=320&h=180&fit=crop', rating: '4.8', year: '2022', genre: 'Action' },
     ]
   },
   {
-    title: 'Top Rating Film dan Series Hari ini',
+    title: 'Top Rating Film & Series Hari Ini',
     movies: [
-      { id: 7, title: 'The Glory', poster: 'https://image.tmdb.org/t/p/w500/ea3ziqbwwCPJ1P8ukIlFV2vhcaV.jpg', rating: '8.1', year: '2023', genre: 'Drama' },
-      { id: 8, title: 'Sweet Home', poster: 'https://image.tmdb.org/t/p/w500/6eMg81CPLalULg8spPt2LxfQJ1.jpg', rating: '7.9', year: '2020', genre: 'Horror' },
-      { id: 9, title: 'Parasyte', poster: 'https://image.tmdb.org/t/p/w500/vYe8Hd0JXbsawHRLVo8dh4J5xnY.jpg', rating: '8.5', year: '2019', genre: 'Thriller' },
-      { id: 10, title: 'Itaewon Class', poster: 'https://image.tmdb.org/t/p/w500/zXpEV7jkLVNS0knJxFgHGqFDkRe.jpg', rating: '8.1', year: '2020', genre: 'Drama' },
-      { id: 11, title: 'Kingdom', poster: 'https://image.tmdb.org/t/p/w500/8HfnKurNOXqFpjVFXkFBDLbzK79.jpg', rating: '8.3', year: '2019', genre: 'Horror' },
-      { id: 12, title: 'Crash Landing', poster: 'https://image.tmdb.org/t/p/w500/jFsBoqQ9g1JF9jHdwvPHxzCiEQy.jpg', rating: '8.7', year: '2020', genre: 'Romance' },
+      { id: 7, title: 'The Glory', poster: 'https://images.unsplash.com/photo-1594909122845-11baa439b7bf?w=320&h=180&fit=crop', rating: '4.9', year: '2023', genre: 'Drama' },
+      { id: 8, title: 'Wednesday', poster: 'https://images.unsplash.com/photo-1616530940355-351fabd9524b?w=320&h=180&fit=crop', rating: '4.8', year: '2022', genre: 'Mystery' },
+      { id: 9, title: 'Squid Game', poster: 'https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=320&h=180&fit=crop', rating: '4.7', year: '2021', genre: 'Thriller' },
+      { id: 10, title: 'Stranger Things', poster: 'https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=320&h=180&fit=crop', rating: '4.9', year: '2022', genre: 'Sci-Fi' },
+      { id: 11, title: 'Money Heist', poster: 'https://images.unsplash.com/photo-1485846234645-a62644f84728?w=320&h=180&fit=crop', rating: '4.6', year: '2021', genre: 'Crime' },
+      { id: 12, title: 'All of Us Are Dead', poster: 'https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?w=320&h=180&fit=crop', rating: '4.5', year: '2022', genre: 'Horror' },
     ]
   },
   {
     title: 'Film Trending',
     movies: [
-      { id: 13, title: 'Oppenheimer', poster: 'https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg', rating: '8.5', year: '2023', genre: 'Drama' },
-      { id: 14, title: 'Barbie', poster: 'https://image.tmdb.org/t/p/w500/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg', rating: '7.0', year: '2023', genre: 'Komedi' },
-      { id: 15, title: 'John Wick 4', poster: 'https://image.tmdb.org/t/p/w500/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg', rating: '7.7', year: '2023', genre: 'Aksi' },
-      { id: 16, title: 'Avatar 2', poster: 'https://image.tmdb.org/t/p/w500/t6HIqrRAclMCA60NaSMtxNJZDc.jpg', rating: '7.6', year: '2022', genre: 'Sci-Fi' },
-      { id: 17, title: 'Top Gun', poster: 'https://image.tmdb.org/t/p/w500/62HCnUTziyWcpDaBO2i1DG35LeH.jpg', rating: '8.3', year: '2022', genre: 'Aksi' },
-      { id: 18, title: 'Dune', poster: 'https://image.tmdb.org/t/p/w500/d5NXSklXo0qyIYkgV94XAgMIckC.jpg', rating: '8.0', year: '2021', genre: 'Sci-Fi' },
+      { id: 13, title: 'Oppenheimer', poster: 'https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=320&h=180&fit=crop', rating: '4.9', year: '2023', genre: 'Drama' },
+      { id: 14, title: 'Barbie', poster: 'https://images.unsplash.com/photo-1594908900066-3f47337c1d55?w=320&h=180&fit=crop', rating: '4.5', year: '2023', genre: 'Comedy' },
+      { id: 15, title: 'John Wick 4', poster: 'https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?w=320&h=180&fit=crop', rating: '4.8', year: '2023', genre: 'Action' },
+      { id: 16, title: 'Guardians 3', poster: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?w=320&h=180&fit=crop', rating: '4.7', year: '2023', genre: 'Sci-Fi' },
+      { id: 17, title: 'Fast X', poster: 'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=320&h=180&fit=crop', rating: '4.4', year: '2023', genre: 'Action' },
+      { id: 18, title: 'Mission Impossible', poster: 'https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=320&h=180&fit=crop', rating: '4.6', year: '2023', genre: 'Action' },
     ]
   }
 ];

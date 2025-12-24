@@ -38,8 +38,8 @@
 }
 
 .movie-card__play {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background: var(--gradient-primary);
   color: white;
@@ -54,9 +54,9 @@
 }
 
 .movie-card__play svg {
-  width: 24px;
-  height: 24px;
-  margin-left: 3px;
+  width: 18px;
+  height: 18px;
+  margin-left: 2px;
 }
 
 .movie-card__rating {
@@ -106,35 +106,39 @@
   opacity: 0.5;
 }
 
-/* Sizes */
+/* Sizes - 16:9 aspect ratio */
 .movie-card--small .movie-card__poster {
-  width: 120px;
-  height: 180px;
+  width: 200px;
+  height: 112px;
 }
 
 .movie-card--medium .movie-card__poster {
-  width: 160px;
-  height: 240px;
+  width: 280px;
+  height: 158px;
 }
 
 .movie-card--large .movie-card__poster {
-  width: 200px;
-  height: 300px;
+  width: 360px;
+  height: 202px;
 }
 
 @media (max-width: 768px) {
   .movie-card--small .movie-card__poster {
-    width: 100px;
-    height: 150px;
+    width: 160px;
+    height: 90px;
   }
   
   .movie-card--medium .movie-card__poster {
-    width: 130px;
-    height: 195px;
+    width: 220px;
+    height: 124px;
   }
   
   .movie-card--large .movie-card__poster {
-    width: 160px;
-    height: 240px;
+    width: 280px;
+    height: 158px;
+  }
+  
+  .movie-card__title {
+    font-size: var(--font-size-xs);
   }
 }
