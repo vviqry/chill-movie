@@ -1,0 +1,9 @@
+/* Home Page Styles */
+
+.home {
+  min-height: 100vh;
+}
+
+.home__main {
+  padding-bottom: var(--spacing-xl);
+}

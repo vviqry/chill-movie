@@ -1,0 +1,109 @@
+.auth-layout {
+  min-height: 100vh;
+  display: flex;
+}
+
+.auth-layout__form-section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-lg);
+  background: var(--color-bg-dark);
+}
+
+.auth-layout__container {
+  width: 100%;
+  max-width: 420px;
+}
+
+.auth-layout__logo {
+  margin-bottom: var(--spacing-xl);
+}
+
+.auth-layout__content {
+}
+
+.auth-layout__title {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.auth-layout__subtitle {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-base);
+  margin-bottom: var(--spacing-xl);
+}
+
+.auth-layout__promo-section {
+  flex: 1;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-3xl);
+  background: var(--gradient-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-layout__promo-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>');
+  background-size: 100px 100px;
+  opacity: 0.5;
+}
+
+.auth-layout__promo-content {
+  position: relative;
+  max-width: 400px;
+  color: white;
+}
+
+.auth-layout__promo-title {
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: var(--spacing-lg);
+}
+
+.auth-layout__promo-text {
+  font-size: var(--font-size-lg);
+  opacity: 0.9;
+  line-height: 1.6;
+  margin-bottom: var(--spacing-xl);
+}
+
+.auth-layout__features {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.auth-layout__feature {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  font-weight: 500;
+}
+
+.auth-layout__feature-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-sm);
+}
+
+/* Tablet and up */
+@media (min-width: 1024px) {
+  .auth-layout__promo-section {
+    display: flex;
+  }
+}
