@@ -24,18 +24,6 @@ function Hero({
       
       <div className="hero__overlay"></div>
       
-      {/* Navigation arrows */}
-      <button className="hero__nav hero__nav--left" aria-label="Previous">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <path d="M15 18l-6-6 6-6"/>
-        </svg>
-      </button>
-      <button className="hero__nav hero__nav--right" aria-label="Next">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <path d="M9 18l6-6-6-6"/>
-        </svg>
-      </button>
-      
       {/* Volume control */}
       <button className="hero__volume" onClick={onVolumeToggle} aria-label="Toggle volume">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

@@ -12,7 +12,7 @@
 
 .movie-card__poster {
   position: relative;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   overflow: hidden;
   background: var(--color-bg-card);
 }
@@ -22,6 +22,9 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  /* Prevent blurry images */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
 
 .movie-card__overlay {
@@ -40,8 +43,8 @@
 }
 
 .movie-card__play {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   background: var(--color-primary);
   color: white;
@@ -58,16 +61,16 @@
 }
 
 .movie-card__play svg {
-  width: 18px;
-  height: 18px;
-  margin-left: 2px;
+  width: 22px;
+  height: 22px;
+  margin-left: 3px;
 }
 
 .movie-card__badge {
   position: absolute;
   top: var(--spacing-sm);
   left: var(--spacing-sm);
-  padding: 2px 8px;
+  padding: 4px 10px;
   background: var(--color-primary);
   border-radius: var(--radius-sm);
   font-size: var(--font-size-xs);
@@ -81,23 +84,24 @@
   left: var(--spacing-sm);
   display: flex;
   align-items: center;
-  gap: 2px;
-  padding: 2px 6px;
-  background: rgba(0, 0, 0, 0.7);
+  gap: 4px;
+  padding: 4px 8px;
+  background: rgba(0, 0, 0, 0.8);
   border-radius: var(--radius-sm);
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size-sm);
   font-weight: 600;
   color: var(--color-text-primary);
 }
 
 .movie-card__star {
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 14px;
   color: var(--color-star);
 }
 
 .movie-card__info {
   padding-top: var(--spacing-sm);
+  max-width: 100%;
 }
 
 .movie-card__title {
@@ -122,70 +126,70 @@
   opacity: 0.5;
 }
 
-/* ========== PORTRAIT 9:16 (For Top Rating, Trending, Rilis Baru) ========== */
-.movie-card--portrait.movie-card--small .movie-card__poster {
-  width: 150px;
-  height: 225px;
-}
-
-.movie-card--portrait.movie-card--medium .movie-card__poster {
-  width: 200px;
-  height: 300px;
-}
-
-.movie-card--portrait.movie-card--large .movie-card__poster {
-  width: 220px;
-  height: 330px;
-}
-
-/* ========== LANDSCAPE 16:9 (For "Melanjutkan Nonton Film") ========== */
+/* ========== LANDSCAPE 16:9 (For "Melanjutkan Nonton Film") - LARGER ========== */
 .movie-card--landscape.movie-card--small .movie-card__poster {
-  width: 220px;
-  height: 124px;
-}
-
-.movie-card--landscape.movie-card--medium .movie-card__poster {
   width: 280px;
   height: 158px;
 }
 
+.movie-card--landscape.movie-card--medium .movie-card__poster {
+  width: 350px;
+  height: 197px;
+}
+
 .movie-card--landscape.movie-card--large .movie-card__poster {
-  width: 360px;
-  height: 202px;
+  width: 420px;
+  height: 236px;
+}
+
+/* ========== PORTRAIT 9:16 (For Top Rating, Trending, Rilis Baru) - LARGER ========== */
+.movie-card--portrait.movie-card--small .movie-card__poster {
+  width: 180px;
+  height: 270px;
+}
+
+.movie-card--portrait.movie-card--medium .movie-card__poster {
+  width: 220px;
+  height: 330px;
+}
+
+.movie-card--portrait.movie-card--large .movie-card__poster {
+  width: 260px;
+  height: 390px;
 }
 
 /* Mobile adjustments */
 @media (max-width: 768px) {
-  /* Portrait mobile */
-  .movie-card--portrait.movie-card--small .movie-card__poster {
-    width: 130px;
-    height: 195px;
-  }
-  
-  .movie-card--portrait.movie-card--medium .movie-card__poster {
-    width: 150px;
-    height: 225px;
-  }
-  
-  .movie-card--portrait.movie-card--large .movie-card__poster {
-    width: 180px;
-    height: 270px;
-  }
-  
   /* Landscape mobile */
   .movie-card--landscape.movie-card--small .movie-card__poster {
-    width: 180px;
-    height: 101px;
-  }
-  
-  .movie-card--landscape.movie-card--medium .movie-card__poster {
     width: 220px;
     height: 124px;
   }
   
+  .movie-card--landscape.movie-card--medium .movie-card__poster {
+    width: 280px;
+    height: 158px;
+  }
+  
   .movie-card--landscape.movie-card--large .movie-card__poster {
-    width: 260px;
-    height: 146px;
+    width: 320px;
+    height: 180px;
+  }
+  
+  /* Portrait mobile */
+  .movie-card--portrait.movie-card--small .movie-card__poster {
+    width: 150px;
+    height: 225px;
+  }
+  
+  .movie-card--portrait.movie-card--medium .movie-card__poster {
+    width: 180px;
+    height: 270px;
+  }
+  
+  .movie-card--portrait.movie-card--large .movie-card__poster {
+    width: 200px;
+    height: 300px;
   }
   
   .movie-card__title {
@@ -194,13 +198,13 @@
 }
 
 @media (max-width: 480px) {
-  .movie-card--portrait.movie-card--medium .movie-card__poster {
-    width: 130px;
-    height: 195px;
+  .movie-card--landscape.movie-card--medium .movie-card__poster {
+    width: 220px;
+    height: 124px;
   }
   
-  .movie-card--landscape.movie-card--medium .movie-card__poster {
-    width: 180px;
-    height: 101px;
+  .movie-card--portrait.movie-card--medium .movie-card__poster {
+    width: 150px;
+    height: 225px;
   }
 }
