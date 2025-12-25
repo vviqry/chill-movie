@@ -1,16 +1,62 @@
-# React + Vite
+# CHILL - Platform Streaming Film & Series
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Proyek web aplikasi platform streaming film dan series yang dibangun menggunakan React + Vite.
 
-Currently, two official plugins are available:
+## 🎬 Tentang Proyek
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+CHILL adalah platform streaming yang menampilkan koleksi film dan series dengan tampilan modern dan responsif. Fitur utama meliputi:
 
-## React Compiler
+- **Halaman Utama** - Hero banner, slider film melanjutkan nonton, top rating, trending, dan rilis baru
+- **Halaman Login** - Form login dengan validasi
+- **Halaman Register** - Form pendaftaran akun baru
+- **Navigasi** - Header dengan menu navigasi dan dropdown profil
+- **Footer** - Informasi genre dan bantuan
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 Cara Menjalankan
 
-## Expanding the ESLint configuration
+### Development
+```bash
+npm install
+npm run dev
+```
+Buka http://localhost:5173 di browser.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Production Build
+```bash
+npm run build
+```
+Hasil build ada di folder `dist/`.
+
+## 📁 Struktur Folder
+
+```
+src/
+├── components/
+│   ├── common/      # Komponen umum (Button, Input, Logo, MovieCard)
+│   ├── layout/      # Layout (Header, Footer)
+│   └── sections/    # Section (Hero, MovieSlider)
+├── pages/           # Halaman (Home, Login, Register)
+├── assets/          # Asset gambar
+├── App.jsx          # Komponen utama
+├── main.jsx         # Entry point
+└── index.css        # Style global
+```
+
+## 🛠️ Teknologi
+
+- **React** - Library UI
+- **Vite** - Build tool
+- **React Router** - Navigasi halaman
+- **CSS** - Styling dengan CSS variables
+
+## 🌐 Demo
+
+Deploy di Netlify: [chill-movie-project.netlify.app](https://chill-movie-project.netlify.app)
+
+## 📝 Catatan
+
+Proyek ini dibuat untuk Mission 5 - Fast Campus.
+
+---
+
+© 2023 CHILL. All Rights Reserved.
