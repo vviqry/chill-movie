@@ -6,15 +6,17 @@ function MovieCard({
   rating,
   year,
   genre,
+  variant = 'portrait',  // 'portrait' (9:16) or 'landscape' (16:9)
   size = 'medium',
   onClick,
-  showInfo = true
+  showInfo = true,
+  showEpisodeBadge = false
 }) {
   return (
-    <div className={`movie-card movie-card--${size}`} onClick={onClick}>
+    <div className={`movie-card movie-card--${variant} movie-card--${size}`} onClick={onClick}>
       <div className="movie-card__poster">
         <img 
-          src={poster || 'https://via.placeholder.com/320x180/1a1a2e/ffffff?text=No+Image'} 
+          src={poster || 'https://via.placeholder.com/200x300/1a1a2e/ffffff?text=No+Image'} 
           alt={title}
           loading="lazy"
         />
@@ -25,6 +27,9 @@ function MovieCard({
             </svg>
           </button>
         </div>
+        {showEpisodeBadge && (
+          <div className="movie-card__badge">Episode Baru</div>
+        )}
         {rating && (
           <div className="movie-card__rating">
             <svg viewBox="0 0 24 24" fill="currentColor" className="movie-card__star">

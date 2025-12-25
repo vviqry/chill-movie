@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { MovieCard } from '../common';
 import './MovieSlider.css';
 
-function MovieSlider({ title, movies }) {
+function MovieSlider({ title, movies, variant = 'portrait' }) {
   const sliderRef = useRef(null);
 
   const scroll = (direction) => {
@@ -19,27 +19,27 @@ function MovieSlider({ title, movies }) {
     <section className="movie-slider">
       <div className="movie-slider__header container">
         <h2 className="movie-slider__title">{title}</h2>
-        <div className="movie-slider__nav">
-          <button 
-            className="movie-slider__nav-btn" 
-            onClick={() => scroll('left')}
-            aria-label="Scroll left"
-          >
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M15 18l-6-6 6-6"/>
-            </svg>
-          </button>
-          <button 
-            className="movie-slider__nav-btn" 
-            onClick={() => scroll('right')}
-            aria-label="Scroll right"
-          >
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M9 18l6-6-6-6"/>
-            </svg>
-          </button>
-        </div>
       </div>
+      
+      {/* Side navigation buttons only */}
+      <button 
+        className="movie-slider__side-nav movie-slider__side-nav--left" 
+        onClick={() => scroll('left')}
+        aria-label="Scroll left"
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M15 18l-6-6 6-6"/>
+        </svg>
+      </button>
+      <button 
+        className="movie-slider__side-nav movie-slider__side-nav--right" 
+        onClick={() => scroll('right')}
+        aria-label="Scroll right"
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M9 18l6-6-6-6"/>
+        </svg>
+      </button>
       
       <div className="movie-slider__container" ref={sliderRef}>
         <div className="movie-slider__track container">
@@ -51,7 +51,9 @@ function MovieSlider({ title, movies }) {
               rating={movie.rating}
               year={movie.year}
               genre={movie.genre}
+              variant={variant}
               size="medium"
+              showEpisodeBadge={movie.showEpisodeBadge}
             />
           ))}
         </div>

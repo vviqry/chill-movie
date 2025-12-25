@@ -1,145 +1,259 @@
+/* ========== HEADER / NAVBAR STYLES - CHILL STREAMING ========== */
+
 .header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 100;
-  background: linear-gradient(180deg, rgba(10, 14, 23, 0.95) 0%, rgba(10, 14, 23, 0) 100%);
-  padding: var(--spacing-md) 0;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-border);
+  padding: 10px 0;
 }
 
 .header__container {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: var(--spacing-xl);
+  width: 100%;
+  padding: 0 15px;
 }
 
 .header__logo {
   flex-shrink: 0;
 }
 
+/* Navigation Menu - Always horizontal */
 .header__nav {
-  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin: 0 auto;
+  padding: 0;
+  flex-grow: 1;
+  justify-content: start;
+  margin-left: var(--spacing-lg);
 }
 
 .header__nav-list {
   display: flex;
   align-items: center;
-  gap: var(--spacing-lg);
+  gap: 24px;
 }
 
 .header__nav-link {
-  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary) !important;
+  text-decoration: none;
+  font-size: var(--font-size-base);
   font-weight: 500;
-  color: var(--color-text-secondary);
-  transition: color var(--transition-fast);
-  padding: var(--spacing-xs) 0;
+  transition: color 0.3s;
   white-space: nowrap;
+  flex-shrink: 0;
+  padding: 5px 0;
 }
 
-.header__nav-link:hover,
-.header__nav-link--active {
-  color: var(--color-text-primary);
+.header__nav-link:hover {
+  color: var(--color-text-primary) !important;
 }
 
 .header__nav-link--active {
+  color: var(--color-text-primary) !important;
   position: relative;
 }
 
 .header__nav-link--active::after {
   content: '';
   position: absolute;
-  bottom: -2px;
+  bottom: -5px;
   left: 0;
-  right: 0;
+  width: 100%;
   height: 2px;
-  background: var(--gradient-primary);
-  border-radius: var(--radius-full);
+  background-color: var(--color-text-primary);
 }
 
+/* Actions - Avatar & Dropdown */
 .header__actions {
   display: flex;
   align-items: center;
   gap: var(--spacing-md);
+  margin-left: auto;
 }
 
-.header__search {
-  width: 36px;
-  height: 36px;
+.header__profile {
   display: flex;
   align-items: center;
-  justify-content: center;
-  background: transparent;
-  color: var(--color-text-secondary);
-  border-radius: var(--radius-full);
-  transition: all var(--transition-fast);
-}
-
-.header__search:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: var(--color-text-primary);
-}
-
-.header__search svg {
-  width: 20px;
-  height: 20px;
+  gap: var(--spacing-xs);
+  cursor: pointer;
+  position: relative;
 }
 
 .header__avatar {
   width: 36px;
   height: 36px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--color-text-primary);
+  flex-shrink: 0;
+}
+
+.header__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.header__chevron {
+  width: 12px;
+  height: 12px;
+  color: var(--color-text-primary);
+  transition: transform 0.3s;
+}
+
+.header__chevron--open {
+  transform: rotate(180deg);
+}
+
+/* Dropdown menu */
+.header__dropdown {
+  position: absolute;
+  top: calc(100% + var(--spacing-sm));
+  right: 0;
+  min-width: 180px;
+  background: rgba(20, 20, 30, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-sm);
+  box-shadow: var(--shadow-lg);
+}
+
+.header__dropdown-item {
   display: flex;
   align-items: center;
-  justify-content: center;
-  border-radius: var(--radius-full);
-  background: var(--color-primary);
-  color: white;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 20px;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.3s;
+  text-align: left;
+  text-decoration: none;
 }
 
-.header__avatar svg {
-  width: 28px;
-  height: 28px;
+.header__dropdown-item:hover {
+  background: var(--color-primary-hover);
+  color: var(--color-text-primary);
 }
 
-/* Mobile - keep nav visible but smaller */
+.header__dropdown-item svg {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.header__dropdown-item--logout {
+  color: var(--color-text-secondary);
+}
+
+.header__dropdown-item--logout:hover {
+  background: var(--color-primary-hover);
+  color: var(--color-text-primary);
+}
+
+/* Dropdown divider */
+.header__dropdown-divider {
+  height: 1px;
+  background: var(--color-border);
+  margin: var(--spacing-xs) 0;
+}
+
+/* ========== RESPONSIVE ========== */
+
+/* Tablet */
+@media (max-width: 992px) {
+  .header__nav-list {
+    gap: 20px;
+  }
+}
+
+/* Mobile */
 @media (max-width: 768px) {
   .header__container {
-    gap: var(--spacing-sm);
+    padding: 0 10px;
+  }
+  
+  .header__nav {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 15px;
+    margin: 0 15px;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 5px;
+    scrollbar-width: none;
+  }
+  
+  .header__nav::-webkit-scrollbar {
+    display: none;
   }
   
   .header__nav-list {
-    gap: var(--spacing-sm);
+    gap: 15px;
   }
   
   .header__nav-link {
-    font-size: var(--font-size-xs);
-    padding: var(--spacing-xs) var(--spacing-xs);
-  }
-  
-  .header__search {
-    width: 28px;
-    height: 28px;
-  }
-  
-  .header__search svg {
-    width: 16px;
-    height: 16px;
+    font-size: 0.9rem;
+    padding: 5px 0;
   }
   
   .header__avatar {
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
   }
   
-  .header__avatar svg {
-    width: 22px;
-    height: 22px;
+  .header__dropdown {
+    min-width: 160px;
   }
 }
 
-/* Very small screens */
+/* Very Small Screens */
 @media (max-width: 480px) {
+  .header__container {
+    padding: 0 8px;
+  }
+  
+  .header__nav-list {
+    gap: 10px;
+  }
+  
   .header__nav-link {
+    font-size: 0.85rem;
+  }
+  
+  .header__avatar {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .header__chevron {
     font-size: 10px;
+  }
+}
+
+/* Extreme Small Screens */
+@media (max-width: 360px) {
+  .header__nav-list {
+    gap: 8px;
+  }
+  
+  .header__nav-link {
+    font-size: 0.8rem;
   }
 }

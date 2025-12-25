@@ -8,36 +8,52 @@ function Hero({
   rating,
   year,
   genre,
+  ageRating = '18+',
   onPlay,
-  onMoreInfo
+  onMoreInfo,
+  onVolumeToggle
 }) {
   return (
-    <section 
-      className="hero" 
-      style={{ backgroundImage: `url(${backdrop})` }}
-    >
+    <section className="hero">
+      {/* Background Image */}
+      <img 
+        src={backdrop} 
+        alt={title} 
+        className="hero__bg"
+      />
+      
       <div className="hero__overlay"></div>
+      
+      {/* Navigation arrows */}
+      <button className="hero__nav hero__nav--left" aria-label="Previous">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M15 18l-6-6 6-6"/>
+        </svg>
+      </button>
+      <button className="hero__nav hero__nav--right" aria-label="Next">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M9 18l6-6-6-6"/>
+        </svg>
+      </button>
+      
+      {/* Volume control */}
+      <button className="hero__volume" onClick={onVolumeToggle} aria-label="Toggle volume">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+          <line x1="23" y1="9" x2="17" y2="15"/>
+          <line x1="17" y1="9" x2="23" y2="15"/>
+        </svg>
+      </button>
+      
       <div className="hero__content container">
-        <div className="hero__meta">
-          {rating && (
-            <span className="hero__rating">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-              </svg>
-              {rating}
-            </span>
-          )}
-          {year && <span className="hero__year">{year}</span>}
-          {genre && <span className="hero__genre">{genre}</span>}
-        </div>
-        
         <h1 className="hero__title">{title}</h1>
         <p className="hero__description">{description}</p>
         
+        {/* Hero buttons row with background */}
         <div className="hero__actions">
           <Button 
             variant="primary" 
-            size="large"
+            size="medium"
             onClick={onPlay}
             icon={
               <svg viewBox="0 0 24 24" fill="currentColor">
@@ -45,15 +61,24 @@ function Hero({
               </svg>
             }
           >
-            Mulai Menonton
+            Mulai
           </Button>
           <Button 
             variant="secondary" 
-            size="large"
+            size="medium"
             onClick={onMoreInfo}
+            icon={
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 16v-4M12 8h.01"/>
+              </svg>
+            }
           >
             Selengkapnya
           </Button>
+          {ageRating && (
+            <span className="hero__age-rating">{ageRating}</span>
+          )}
         </div>
       </div>
     </section>

@@ -1,37 +1,61 @@
 .logo {
   display: flex;
   align-items: center;
+  gap: var(--spacing-sm);
 }
 
-.logo__image {
+.logo__icon {
   height: auto;
   width: auto;
   object-fit: contain;
 }
 
+.logo__text {
+  font-weight: 800;
+  color: var(--color-text-primary);
+  letter-spacing: 0.05em;
+}
+
 /* Sizes */
-.logo--small .logo__image {
-  height: 28px;
+.logo--small .logo__icon {
+  height: 24px;
 }
 
-.logo--medium .logo__image {
-  height: 36px;
+.logo--small .logo__text {
+  font-size: var(--font-size-lg);
 }
 
-.logo--large .logo__image {
-  height: 48px;
+.logo--medium .logo__icon {
+  height: 32px;
 }
 
+.logo--medium .logo__text {
+  font-size: var(--font-size-xl);
+}
+
+.logo--large .logo__icon {
+  height: 40px;
+}
+
+.logo--large .logo__text {
+  font-size: var(--font-size-2xl);
+}
+
+/* Hide text on small screens - only for header */
 @media (max-width: 768px) {
-  .logo--small .logo__image {
-    height: 24px;
+  .header .logo__text {
+    display: none;
   }
   
-  .logo--medium .logo__image {
+  .logo--small .logo__icon {
     height: 28px;
   }
   
-  .logo--large .logo__image {
+  .logo--medium .logo__icon {
+    height: 32px;
+  }
+  
+  .logo--large .logo__icon {
     height: 36px;
   }
 }
