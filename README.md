@@ -55,7 +55,7 @@ Deploy di Netlify: [chill-movie-project.netlify.app](https://chill-movie-project
 
 ## 📝 Catatan
 
-Proyek ini dibuat untuk Mission 5 - Fast Campus.
+Proyek ini dibuat untuk Mission 5
 
 ---
 
